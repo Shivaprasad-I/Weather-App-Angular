@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>City Time Zones</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+    
+<div class="parent-container" (scroll)="onScroll($event)">
+    <table>
+    <thead>
+        <tr>
+        <th>City</th>
+        <th>Country</th>
+        <th>Time Zone</th>
+        <th>Population</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let city of cityData">
+        <td (mouseenter)="popup.show()" (mouseleave)="popup.hide()" style="position: relative;">
+            {{ city.ascii_name }}
+            <div style="padding-left: 25%;">
+                <sgi-list-popup-view #popup [alternateNames]="city.alternate_names"></sgi-list-popup-view>
+            </div>
+        </td>
+        <td>{{ city.cou_name_en }}</td>
+        <td>{{ city.timezone }}</td>
+        <td>{{city.population}}</td>
+        </tr>
+    </tbody>
+    </table>
+</div>
+
+</body>
+</html>

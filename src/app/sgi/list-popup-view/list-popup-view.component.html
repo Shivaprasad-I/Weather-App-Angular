@@ -1,0 +1,6 @@
+<div class="popup" [style.display]="isVisible ? 'block' : 'none'">
+    <ul *ngIf="alternateNames">
+      <li *ngFor="let name of alternateNames">{{ name }}</li>
+    </ul>
+</div>
+  
