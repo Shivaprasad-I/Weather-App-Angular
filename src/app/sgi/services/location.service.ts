@@ -13,11 +13,14 @@ export class LocationService {
   private selectRequiredFields = encodeURIComponent(`${LocationServiceFieldOptions.NAME},${LocationServiceFieldOptions.ASCII_NAME},${LocationServiceFieldOptions.GEONAME_ID},${LocationServiceFieldOptions.ALTERNATE_NAMES},${LocationServiceFieldOptions.COUNTRY_CODE},${LocationServiceFieldOptions.COUNTRY_NAME},${LocationServiceFieldOptions.POPULATION},${LocationServiceFieldOptions.TIMEZONE},${LocationServiceFieldOptions.LABEL}`);
   constructor(private http: HttpClient) { }
 
-  getCityListings(pageNo: number, timeZone:string):Observable<CityData>{
+  getCityListings(pageNo: number = 0, timeZone:string = ""):Observable<CityData>{
 
-    timeZone = encodeURIComponent(timeZone);
-    let url:string = `${this.siteUrl}?select=${this.selectRequiredFields}&limit=${LocationServiceConstants.PageSize}&offset=${LocationServiceConstants.PageSize * pageNo}&timezone=${timeZone}`;
-    // console.log(url);
+    if(timeZone && timeZone.length > 0){
+      timeZone = encodeURIComponent(timeZone);
+      timeZone = `&timezone=${timeZone}`
+    }
+    let url:string = `${this.siteUrl}?select=${this.selectRequiredFields}&limit=${LocationServiceConstants.PageSize}&offset=${LocationServiceConstants.PageSize * pageNo}${timeZone}`;
+    console.log(pageNo);
     return this.http.get<CityData>(url);
   }
 
