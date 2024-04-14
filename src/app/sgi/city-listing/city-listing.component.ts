@@ -14,7 +14,8 @@ import { ListPopupViewComponent } from '../list-popup-view/list-popup-view.compo
 export class CityListingComponent implements OnInit {
   private totalCount:number = 0 ;
   countryHovered: string | null = null;
-  
+  private totalEntryCount: number = 0;
+  private pageNumber: number = 0;
   showAlternateNames(city: City) {
     this.countryHovered = city.ascii_name;
   }
@@ -38,7 +39,10 @@ export class CityListingComponent implements OnInit {
     );
   }
   onScroll(event : any){
-    console.log("scrolled");
-    console.log(event);
+
+    this.fetchMoreEntries();
+  }
+  fetchMoreEntries(){
+    this
   }
 }
