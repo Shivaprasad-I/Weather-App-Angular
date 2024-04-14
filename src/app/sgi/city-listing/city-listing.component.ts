@@ -14,7 +14,6 @@ import { LocationServiceConstants } from '../models/location-service-constants';
 })
 export class CityListingComponent implements OnInit {
   private totalCount:number = 0 ;
-  private pageNumber: number = 0;
   userTimeZone :string ="";
   isloading: boolean = false;
   countryHovered: string | null = null;

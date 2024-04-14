@@ -1,6 +1,7 @@
-<div class="popup" [style.display]="isVisible ? 'block' : 'none'">
-    <ul *ngIf="alternateNames">
-      <li *ngFor="let name of alternateNames">{{ name }}</li>
+<div class="popup" [style.display]="isVisible && dataList ? 'block' : 'none'">
+    <p>{{headerName}}</p>
+    <ul>
+      <li *ngFor="let item of dataList">{{ item }}</li>
     </ul>
 </div>
   
