@@ -36,7 +36,7 @@
         <td (mouseenter)="popup.show()" (mouseleave)="popup.hide()" style="position: relative;">
             {{ city.ascii_name }}
             <div style="padding-left: 25%;">
-                <sgi-list-popup-view #popup [alternateNames]="city.alternate_names"></sgi-list-popup-view>
+                <sgi-list-popup-view #popup [dataList]="city.alternate_names" [headerName]="'Alternative city names'"></sgi-list-popup-view>
             </div>
         </td>
         <td>{{ city.cou_name_en }}</td>

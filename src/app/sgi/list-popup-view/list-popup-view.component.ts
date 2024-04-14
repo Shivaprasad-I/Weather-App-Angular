@@ -9,7 +9,8 @@ import { Component, Input } from '@angular/core';
   styleUrl: './list-popup-view.component.css'
 })
 export class ListPopupViewComponent {
-  @Input() alternateNames: string[] = [];
+  @Input() dataList: string[] = [];
+  @Input() headerName : string = "";
   isVisible = false;
 
   show() {
